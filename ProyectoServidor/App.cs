@@ -1,36 +1,80 @@
+using AccesoDatos;
 using CapaEntidades;
+using Newtonsoft.Json;
+using Serializar;
+using System.Net;
+using System.Net.Sockets;
 
 namespace ProyectoServidor {
     public partial class App : Form {
         public App() {
             InitializeComponent();
-/*
+
             //estado de cada cliente (conexion y desconexion)
             clientStatus = new ClientStatus(changeClientStatus);
-            
+
             //lista de clientes conectados
             modifyStatus = new ModifyClientsList(updateClientsList);
 
             //cantidad de clientes conectados
             modifyCount = new ModifyCount(changeClientsCount);
 
-            cantUsuarios.Text += conteoClientes.ToString();*/
-
+            cantUsuarios.Text += conteoClientes.ToString();
         }
 
-        ConexionTCP conexionTcp = new();
-        
+
+        public ModifyClientsList modifyStatus;
+        public ClientStatus clientStatus;
+        public ModifyCount modifyCount;
+
+        public delegate void ModifyClientsList(string txt, bool added);
+        public delegate void ClientStatus(string txt);
+        public delegate void ModifyCount(string txt, bool added);
+        public TcpListener tcpListener;
+        public Thread connectWithClient;
+        private bool isServerActive = false;
+        public int conteoClientes = 0;
+
+        public void updateClientsList(string txt, bool added) { //modificarListbox
+
+            if (added) {
+                listConnectedUsers.Items.Add(txt);
+            } else {
+                listConnectedUsers.Items.Remove(txt);
+            }
+        }
+        public void changeClientStatus(string txt) {//EscribirEntxtBox
+                                                    // App app = new();
+
+            try {
+                listRegistroConexiones.Items.Add(txt);
+
+            } catch (Exception a) {
+                MessageBox.Show("no actualiza los clientes");
+            }
+        }
+        public void changeClientsCount(string txt, bool added) { //modificarListbox
+
+            if (added) {
+                conteoClientes += 1;
+            } else {
+                if (conteoClientes > 0) {
+                    conteoClientes -= 1;
+                }
+            }
+            cantUsuarios.Text = $"Usuarios conectados: {conteoClientes}";
+        }
+
         private void btnIniciarServidor_Click(object sender, EventArgs e) {
 
             try {
-                conexionTcp.initServer();
-
+                initServer();
                 #region diseño
-                   // connectWithClient.IsBackground = true;
-                    txtEstadoServidor.Text = "Conectado";
-                    txtEstadoServidor.ForeColor = Color.Green;
-                    btnIniciarServidor.Enabled = false;
-                    btnDetenerServidor.Enabled = true;
+                txtEstadoServidor.Text = "Conectado";
+                txtEstadoServidor.ForeColor = Color.Green;
+                btnIniciarServidor.Enabled = false;
+                btnDetenerServidor.Enabled = true;
+
                 #endregion
 
             } catch (Exception) {
@@ -38,24 +82,10 @@ namespace ProyectoServidor {
             }
 
         }
-       
-        Cliente cliente = new();
 
-        //delegados 
-        /*public ModifyClientsList modifyStatus;
-        public ClientStatus clientStatus;
-        public ModifyCount modifyCount; 
 
-        public delegate void ModifyClientsList(string txt, bool added);
-        public delegate void ClientStatus(string txt);
-        public delegate void ModifyCount(string txt, bool added);
+        public void initServer() {
 
-        public TcpListener tcpListener;
-        public Thread connectWithClient;
-        private bool isServerActive = false;
-        private int conteoClientes = 0;*/
-
-       /* public void initServer() {
             //instanciamos la clase ipadress y especificamos la dirrecion ip con la que se va a comunicar
             IPAddress localIp = IPAddress.Parse("127.0.0.1");
             //inicializa la escucha de las conexiones que vengan de la ip especificada comunicandose en el puerto especificado
@@ -69,8 +99,8 @@ namespace ProyectoServidor {
             connectWithClient.Start();
         }
 
-      
-        public void reponseToClientRequest() { 
+
+        public void reponseToClientRequest() {
             tcpListener.Start(); //incializa escucha de conexiones entrantes
 
             try {
@@ -88,7 +118,8 @@ namespace ProyectoServidor {
             }
         }
 
-        
+
+
         public void serializeMessage(object client) {
             TcpClient tcpClient = (TcpClient)client;
 
@@ -100,7 +131,7 @@ namespace ProyectoServidor {
                 try {
                     var dataFromStream = streamReader.ReadLine();
 
-                    Serialize<object> package = JsonConvert.DeserializeObject<Serialize<object>>(dataFromStream);
+                    ClsSerializar<object> package = JsonConvert.DeserializeObject<ClsSerializar<object>>(dataFromStream);
                     methodToUse(package.Method, dataFromStream, ref streamWriter);
 
                 } catch (Exception ex) {
@@ -110,54 +141,56 @@ namespace ProyectoServidor {
             }
         }
 
-     
+
         public void methodToUse(string method, string inputStream, ref StreamWriter streamWriterServer) {
             switch (method) {
 
                 case "connect":
-                    Serialize<string> getClient = JsonConvert.DeserializeObject<Serialize<string>>(inputStream);
+                    ClsSerializar<string> getClient = JsonConvert.DeserializeObject<ClsSerializar<string>>(inputStream);
                     connect(getClient.Entity, ref streamWriterServer);
-                break;
+                    break;
 
 
                 case "disconnect":
-                    Serialize<string> disconnectionMessage = JsonConvert.DeserializeObject<Serialize<string>>(inputStream);
+                    ClsSerializar<string> disconnectionMessage = JsonConvert.DeserializeObject<ClsSerializar<string>>(inputStream);
                     disconnect(disconnectionMessage.Entity);
-                break;
+                    break;
 
                 case "SucursalesParaCliente":
-                    Serialize<string> getSucursal = JsonConvert.DeserializeObject<Serialize<string>>(inputStream);
+                    ClsSerializar<string> getSucursal = JsonConvert.DeserializeObject<ClsSerializar<string>>(inputStream);
                     SucursalesParaCliente(ref streamWriterServer);
-                break;
+                    break;
 
 
                 case "VehiculosParaCliente":
-                    Serialize<string> getVehiculos = JsonConvert.DeserializeObject<Serialize<string>>(inputStream);
+                    ClsSerializar<string> getVehiculos = JsonConvert.DeserializeObject<ClsSerializar<string>>(inputStream);
                     VehiculosParaCliente(int.Parse(getVehiculos.Entity), ref streamWriterServer);
-                break;
+                    break;
 
 
                 case "CoberturasParaCliente":
-                    Serialize<string> getCoberturas = JsonConvert.DeserializeObject<Serialize<string>>(inputStream);
+                    ClsSerializar<string> getCoberturas = JsonConvert.DeserializeObject<ClsSerializar<string>>(inputStream);
                     CoberturasParaCliente(getCoberturas.Entity, ref streamWriterServer);
-                break;
+                    break;
 
                 default: break;
             }
         }
 
+
         public bool connect(string id, ref StreamWriter streamWriterServer) {
 
             Cliente cliente = new Cliente();
-            DataBase database = new();
+            BaseDatos baseDatos = new();
 
-            cliente = database.obtenerCliente(id);
+            cliente = baseDatos.obtenerCliente(id);
 
             streamWriterServer.WriteLine(JsonConvert.SerializeObject(cliente));
             streamWriterServer.Flush();
 
-            if (cliente !=null && !listConnectedUsers.Items.Contains(cliente.Id) && !listRegistroConexiones.Items.Contains(cliente.Id)) {
-               
+
+            if (cliente != null && !listConnectedUsers.Items.Contains(cliente.Id) && !listRegistroConexiones.Items.Contains(cliente.Id)) {
+
                 listConnectedUsers.Invoke(clientStatus, new object[] { $"{cliente.Id} se ha conectado!" });
                 listRegistroConexiones.Invoke(modifyStatus, new object[] { id, true });
                 cantUsuarios.Invoke(modifyCount, new object[] { id, true });
@@ -168,40 +201,38 @@ namespace ProyectoServidor {
         }
 
         public void SucursalesParaCliente(ref StreamWriter servidorStreamWriter) {
-            DataBase dataBase = new DataBase();
+            BaseDatos baseDatos = new BaseDatos();
 
             List<Sucursal> listaSucursales = new List<Sucursal>();
 
-            listaSucursales = dataBase.obtenerSucursal(false);
+            listaSucursales = baseDatos.obtenerSucursal(false);
 
             servidorStreamWriter.WriteLine(JsonConvert.SerializeObject(listaSucursales));
             servidorStreamWriter.Flush();
         }
 
         private void VehiculosParaCliente(int seleccionIdSucursal, ref StreamWriter servidorStreamWriter) {
-            DataBase dataBase = new DataBase();
+            BaseDatos baseDatos = new BaseDatos();
 
             List<Vehiculo> listaVehiculos = new List<Vehiculo>();
 
             VehiculoSucursal vehiculoSucursal = new VehiculoSucursal();
 
-            Helpers helpers = new();
-
-            if (dataBase.obtenerVehiculo(true).Count > 0) {
+            if (baseDatos.obtenerVehiculo(true).Count > 0) {
 
                 //verificamos que ya se hayan vinculado sucursales a vehiculos
-                if (dataBase.obtenerVehiculoSucursal().Count > 0) {
+                if (baseDatos.obtenerVehiculoSucursal().Count > 0) {
 
                     //y mostramos en el datagridview los que no se hayan vinculado a la sucursal seleccionada
 
-                    listaVehiculos = dataBase.obtenerVehiculo(false, helpers.vehiculosAsociados((int)seleccionIdSucursal));
+                    listaVehiculos = baseDatos.obtenerVehiculo(false, baseDatos.vehiculosAsociados((int)seleccionIdSucursal));
 
-                    if (dataBase.obtenerVehiculo(false, helpers.vehiculosAsociados((int)seleccionIdSucursal)).Count <= 0) {
+                    if (baseDatos.obtenerVehiculo(false, baseDatos.vehiculosAsociados((int)seleccionIdSucursal)).Count <= 0) {
                         MessageBox.Show("ya vinculo con esta sucursal todos los vehiculos disponibles", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 } else {
                     //si no se ha hecho ninguna vinculacion, se muestran todos los vehiculos existentes
-                    listaVehiculos = dataBase.obtenerVehiculo(true);
+                    listaVehiculos = baseDatos.obtenerVehiculo(true);
                 }
             }
 
@@ -210,31 +241,29 @@ namespace ProyectoServidor {
         }
 
         private void CoberturasParaCliente(string id, ref StreamWriter servidorStreamWriter) {
-            DataBase dataBase = new DataBase();
+            BaseDatos baseDatos = new BaseDatos();
 
             Cobertura coberturas = new Cobertura();
             List<Cobertura> listaCoberturas = new List<Cobertura>();
 
-            listaCoberturas = dataBase.obtenerCobertura(id, false);
+            listaCoberturas = baseDatos.obtenerCobertura(id, false);
 
             servidorStreamWriter.WriteLine(JsonConvert.SerializeObject(listaCoberturas));
             servidorStreamWriter.Flush();
-        }
-       
-        */
-        
-        
+        }  
         
         public void disconnect(string id) {
-          /* listConnectedUsers.Invoke(clientStatus, new object[] { $"{id} se ha desconectado!" });
+            listConnectedUsers.Invoke(clientStatus, new object[] { $"{id} se ha desconectado!" });
             listRegistroConexiones.Invoke(modifyStatus, new object[] { id, false });
-            cantUsuarios.Invoke(modifyCount, new object[] { id, false });*/
+            cantUsuarios.Invoke(modifyCount, new object[] { id, false });
         }
+        public void detenerServidor() {
 
+            tcpListener.Stop();
+            isServerActive = false;
+        }
         private void btnDetenerServidor_Click(object sender, EventArgs e) {
-            conexionTcp.detenerServidor();
-           /* tcpListener.Stop();
-            isServerActive = false;*/
+            detenerServidor();
 
             #region diseño
                 txtEstadoServidor.Text = "Desconectado";
@@ -246,34 +275,6 @@ namespace ProyectoServidor {
                                                                                                                //en una codificación particular
 
         #region diseño
-
-        //metodos de actualizacion de clientes y su estado
-        private void updateClientsList(string txt, bool add) {
-            if (add) {
-                listConnectedUsers.Items.Add(txt);
-            } else {
-                listConnectedUsers.Items.Remove(txt);
-            }
-        }
-        public void changeClientStatus(string txt) {
-            try {
-                listRegistroConexiones.Items.Add(txt);
-
-            } catch (Exception a) {
-                MessageBox.Show(a.ToString());
-            }
-        }
-        private void changeClientsCount(string txt, bool added) {
-
-           /* if (added) {
-                conteoClientes += 1;
-            } else {
-                if (conteoClientes >= 0) {
-                    conteoClientes -= 1;
-                }
-            }
-            cantUsuarios.Text = $"Usuarios conectados: {conteoClientes}";*/
-        }
 
         private void esconderElementos() {
                 foreach (var forms in Controls.OfType<UserControl>()) {

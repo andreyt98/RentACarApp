@@ -176,9 +176,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.IndianRed;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "RegistroCobertura";
             this.Size = new System.Drawing.Size(1067, 495);
             this.panel1.ResumeLayout(false);

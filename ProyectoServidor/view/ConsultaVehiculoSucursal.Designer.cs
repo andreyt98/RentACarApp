@@ -25,13 +25,13 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.vehiculoSucursalDataGrid = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnVerDatos = new System.Windows.Forms.Button();
-            this.vehiculoSucursalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idAsignacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehiculoSucursalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnVerDatos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.vehiculoSucursalDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiculoSucursalBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -56,33 +56,9 @@
             this.vehiculoSucursalDataGrid.ReadOnly = true;
             this.vehiculoSucursalDataGrid.RowHeadersVisible = false;
             this.vehiculoSucursalDataGrid.RowTemplate.Height = 25;
+            this.vehiculoSucursalDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.vehiculoSucursalDataGrid.Size = new System.Drawing.Size(403, 223);
             this.vehiculoSucursalDataGrid.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(374, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(315, 25);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Consulta de Vehiculo por Sucursal";
-            // 
-            // btnVerDatos
-            // 
-            this.btnVerDatos.Location = new System.Drawing.Point(357, 132);
-            this.btnVerDatos.Name = "btnVerDatos";
-            this.btnVerDatos.Size = new System.Drawing.Size(352, 42);
-            this.btnVerDatos.TabIndex = 8;
-            this.btnVerDatos.Text = "Ver Datos";
-            this.btnVerDatos.UseVisualStyleBackColor = true;
-            this.btnVerDatos.Click += new System.EventHandler(this.btnVerDatos_Click);
-            // 
-            // vehiculoSucursalBindingSource
-            // 
-            this.vehiculoSucursalBindingSource.DataSource = typeof(CapaEntidades.VehiculoSucursal);
             // 
             // idAsignacionDataGridViewTextBoxColumn
             // 
@@ -112,11 +88,36 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
+            // vehiculoSucursalBindingSource
+            // 
+            this.vehiculoSucursalBindingSource.DataSource = typeof(CapaEntidades.VehiculoSucursal);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(374, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(315, 25);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Consulta de Vehiculo por Sucursal";
+            // 
+            // btnVerDatos
+            // 
+            this.btnVerDatos.Location = new System.Drawing.Point(357, 132);
+            this.btnVerDatos.Name = "btnVerDatos";
+            this.btnVerDatos.Size = new System.Drawing.Size(352, 42);
+            this.btnVerDatos.TabIndex = 8;
+            this.btnVerDatos.Text = "Ver Datos";
+            this.btnVerDatos.UseVisualStyleBackColor = true;
+            this.btnVerDatos.Click += new System.EventHandler(this.btnVerDatos_Click);
+            // 
             // ConsultaVehiculoSucursal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkBlue;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnVerDatos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.vehiculoSucursalDataGrid);

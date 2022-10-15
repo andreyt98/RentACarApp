@@ -27,13 +27,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnVerDatos = new System.Windows.Forms.Button();
             this.vehiculoDataGrid = new System.Windows.Forms.DataGridView();
-            this.vehiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idPlacaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.vehiculoDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiculoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +61,10 @@
             // 
             // vehiculoDataGrid
             // 
+            this.vehiculoDataGrid.AllowUserToAddRows = false;
+            this.vehiculoDataGrid.AllowUserToDeleteRows = false;
+            this.vehiculoDataGrid.AllowUserToResizeColumns = false;
+            this.vehiculoDataGrid.AllowUserToResizeRows = false;
             this.vehiculoDataGrid.AutoGenerateColumns = false;
             this.vehiculoDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vehiculoDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -71,15 +75,14 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.vehiculoDataGrid.DataSource = this.vehiculoBindingSource;
-            this.vehiculoDataGrid.Location = new System.Drawing.Point(216, 192);
+            this.vehiculoDataGrid.Location = new System.Drawing.Point(246, 194);
+            this.vehiculoDataGrid.MultiSelect = false;
             this.vehiculoDataGrid.Name = "vehiculoDataGrid";
+            this.vehiculoDataGrid.RowHeadersVisible = false;
             this.vehiculoDataGrid.RowTemplate.Height = 25;
-            this.vehiculoDataGrid.Size = new System.Drawing.Size(645, 229);
+            this.vehiculoDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.vehiculoDataGrid.Size = new System.Drawing.Size(603, 229);
             this.vehiculoDataGrid.TabIndex = 9;
-            // 
-            // vehiculoBindingSource
-            // 
-            this.vehiculoBindingSource.DataSource = typeof(CapaEntidades.Vehiculo);
             // 
             // idPlacaDataGridViewTextBoxColumn
             // 
@@ -117,11 +120,15 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Kilometraje";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
+            // vehiculoBindingSource
+            // 
+            this.vehiculoBindingSource.DataSource = typeof(CapaEntidades.Vehiculo);
+            // 
             // ConsultaVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Maroon;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.vehiculoDataGrid);
             this.Controls.Add(this.btnVerDatos);
             this.Controls.Add(this.label1);

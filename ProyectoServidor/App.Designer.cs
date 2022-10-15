@@ -91,9 +91,9 @@
             this.panel1.Controls.Add(this.btnMenuConsulta);
             this.panel1.Controls.Add(this.panelMenuRegistro);
             this.panel1.Controls.Add(this.btnMenuRegistro);
-            this.panel1.Location = new System.Drawing.Point(27, 1);
+            this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1041, 157);
+            this.panel1.Size = new System.Drawing.Size(1067, 157);
             this.panel1.TabIndex = 1;
             // 
             // cantUsuarios
@@ -600,7 +600,6 @@
         private Panel panelInicio;
         private Label label1;
         private Label label2;
-        private Label cantUsuarios;
         private Button btnInicio;
         public ListBox listRegistroConexiones;
         public ListBox listConnectedUsers;
@@ -610,5 +609,6 @@
         private Label label3;
         private Button btnDetenerServidor;
         private Label label4;
+        public Label cantUsuarios;
     }
 }

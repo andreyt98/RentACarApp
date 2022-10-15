@@ -25,37 +25,63 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.tipoVehiculoDataGrid = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoVehiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnVerDatos = new System.Windows.Forms.Button();
-            this.tipoVehiculoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tipoVehiculoDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoVehiculoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoVehiculoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tipoVehiculoDataGrid
             // 
+            this.tipoVehiculoDataGrid.AllowUserToAddRows = false;
+            this.tipoVehiculoDataGrid.AllowUserToDeleteRows = false;
+            this.tipoVehiculoDataGrid.AllowUserToResizeColumns = false;
+            this.tipoVehiculoDataGrid.AllowUserToResizeRows = false;
             this.tipoVehiculoDataGrid.AutoGenerateColumns = false;
             this.tipoVehiculoDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tipoVehiculoDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewCheckBoxColumn1});
-            this.tipoVehiculoDataGrid.DataSource = this.tipoVehiculoBindingSource1;
-            this.tipoVehiculoDataGrid.Location = new System.Drawing.Point(363, 204);
+            this.Estado});
+            this.tipoVehiculoDataGrid.DataSource = this.tipoVehiculoBindingSource;
+            this.tipoVehiculoDataGrid.Location = new System.Drawing.Point(389, 207);
+            this.tipoVehiculoDataGrid.MultiSelect = false;
             this.tipoVehiculoDataGrid.Name = "tipoVehiculoDataGrid";
             this.tipoVehiculoDataGrid.ReadOnly = true;
+            this.tipoVehiculoDataGrid.RowHeadersVisible = false;
             this.tipoVehiculoDataGrid.RowTemplate.Height = 25;
-            this.tipoVehiculoDataGrid.Size = new System.Drawing.Size(343, 223);
+            this.tipoVehiculoDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tipoVehiculoDataGrid.Size = new System.Drawing.Size(304, 223);
             this.tipoVehiculoDataGrid.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Descripcion";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Descripcion";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
             // 
             // tipoVehiculoBindingSource
             // 
-            this.tipoVehiculoBindingSource.DataSource = typeof(void);
+            this.tipoVehiculoBindingSource.DataSource = typeof(CapaEntidades.TipoVehiculo);
             // 
             // label1
             // 
@@ -78,44 +104,18 @@
             this.btnVerDatos.UseVisualStyleBackColor = true;
             this.btnVerDatos.Click += new System.EventHandler(this.btnVerDatos_Click);
             // 
-            // tipoVehiculoBindingSource1
-            // 
-            this.tipoVehiculoBindingSource1.DataSource = typeof(CapaEntidades.TipoVehiculo);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Descripcion";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Descripcion";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Estado";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Estado";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            // 
             // ConsultaTipoVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Purple;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnVerDatos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tipoVehiculoDataGrid);
             this.Name = "ConsultaTipoVehiculo";
             this.Size = new System.Drawing.Size(1067, 495);
-            /*((System.ComponentModel.ISupportInitialize)(this.tipoVehiculoDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoVehiculoDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoVehiculoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoVehiculoBindingSource1)).EndInit();*/
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,10 +129,9 @@
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn estadoDataGridViewCheckBoxColumn;
-        private BindingSource tipoVehiculoBindingSource;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private BindingSource tipoVehiculoBindingSource1;
+        private DataGridViewTextBoxColumn Estado;
+        private BindingSource tipoVehiculoBindingSource;
     }
 }

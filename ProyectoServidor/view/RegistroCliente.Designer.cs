@@ -90,6 +90,7 @@
             // 
             // btnGuardarDatos
             // 
+            this.btnGuardarDatos.ForeColor = System.Drawing.Color.Black;
             this.btnGuardarDatos.Location = new System.Drawing.Point(152, 284);
             this.btnGuardarDatos.Name = "btnGuardarDatos";
             this.btnGuardarDatos.Size = new System.Drawing.Size(395, 60);
@@ -196,7 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Orange;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Name = "RegistroCliente";

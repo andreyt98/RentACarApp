@@ -80,6 +80,7 @@
             // 
             // btnGuardarDatos
             // 
+            this.btnGuardarDatos.ForeColor = System.Drawing.Color.Black;
             this.btnGuardarDatos.Location = new System.Drawing.Point(152, 284);
             this.btnGuardarDatos.Name = "btnGuardarDatos";
             this.btnGuardarDatos.Size = new System.Drawing.Size(395, 60);
@@ -172,14 +173,14 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "ID";
             // 
-            // RegistroSucursal1
+            // RegistroSucursal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Green;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Name = "RegistroSucursal1";
+            this.Name = "RegistroSucursal";
             this.Size = new System.Drawing.Size(1067, 495);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

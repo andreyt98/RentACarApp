@@ -22,7 +22,6 @@ namespace ProyectoServidor.view {
 
                 BaseDatos database = new();
                 database.guardarCobertura(cobertura);
-               // cobertura.saveInDataBase();
                 MessageBox.Show("Datos guardados correctamente!", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.None);
                 limpiarCampos();
 

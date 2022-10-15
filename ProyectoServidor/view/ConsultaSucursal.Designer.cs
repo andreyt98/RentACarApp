@@ -31,12 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnVerDatos = new System.Windows.Forms.Button();
             this.sucursalDataGrid = new System.Windows.Forms.DataGridView();
-            this.sucursalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sucursalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.sucursalDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sucursalBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -88,60 +88,73 @@
             // 
             // sucursalDataGrid
             // 
+            this.sucursalDataGrid.AllowUserToAddRows = false;
+            this.sucursalDataGrid.AllowUserToDeleteRows = false;
+            this.sucursalDataGrid.AllowUserToResizeColumns = false;
+            this.sucursalDataGrid.AllowUserToResizeRows = false;
             this.sucursalDataGrid.AutoGenerateColumns = false;
             this.sucursalDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sucursalDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn1,
             this.nombreDataGridViewTextBoxColumn1,
             this.direccionDataGridViewTextBoxColumn1,
-            this.estadoDataGridViewCheckBoxColumn,
+            this.Estado,
             this.telefonoDataGridViewTextBoxColumn1});
             this.sucursalDataGrid.DataSource = this.sucursalBindingSource;
             this.sucursalDataGrid.Location = new System.Drawing.Point(275, 186);
+            this.sucursalDataGrid.MultiSelect = false;
             this.sucursalDataGrid.Name = "sucursalDataGrid";
+            this.sucursalDataGrid.ReadOnly = true;
+            this.sucursalDataGrid.RowHeadersVisible = false;
             this.sucursalDataGrid.RowTemplate.Height = 25;
-            this.sucursalDataGrid.Size = new System.Drawing.Size(543, 150);
+            this.sucursalDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.sucursalDataGrid.Size = new System.Drawing.Size(503, 150);
             this.sucursalDataGrid.TabIndex = 6;
-            // 
-            // sucursalBindingSource
-            // 
-            this.sucursalBindingSource.DataSource = typeof(CapaEntidades.Sucursal);
             // 
             // idDataGridViewTextBoxColumn1
             // 
             this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // nombreDataGridViewTextBoxColumn1
             // 
             this.nombreDataGridViewTextBoxColumn1.DataPropertyName = "Nombre";
             this.nombreDataGridViewTextBoxColumn1.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn1.Name = "nombreDataGridViewTextBoxColumn1";
+            this.nombreDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // direccionDataGridViewTextBoxColumn1
             // 
             this.direccionDataGridViewTextBoxColumn1.DataPropertyName = "Direccion";
             this.direccionDataGridViewTextBoxColumn1.HeaderText = "Direccion";
             this.direccionDataGridViewTextBoxColumn1.Name = "direccionDataGridViewTextBoxColumn1";
+            this.direccionDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // estadoDataGridViewCheckBoxColumn
+            // Estado
             // 
-            this.estadoDataGridViewCheckBoxColumn.DataPropertyName = "Estado";
-            this.estadoDataGridViewCheckBoxColumn.HeaderText = "Estado";
-            this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
             // 
             // telefonoDataGridViewTextBoxColumn1
             // 
             this.telefonoDataGridViewTextBoxColumn1.DataPropertyName = "Telefono";
             this.telefonoDataGridViewTextBoxColumn1.HeaderText = "Telefono";
             this.telefonoDataGridViewTextBoxColumn1.Name = "telefonoDataGridViewTextBoxColumn1";
+            this.telefonoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sucursalBindingSource
+            // 
+            this.sucursalBindingSource.DataSource = typeof(CapaEntidades.Sucursal);
             // 
             // ConsultaSucursal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Green;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.sucursalDataGrid);
             this.Controls.Add(this.btnVerDatos);
             this.Controls.Add(this.label1);
@@ -162,11 +175,11 @@
         private DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
         private DataGridView sucursalDataGrid;
+        private BindingSource sucursalBindingSource;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn1;
-        private DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn1;
-        private BindingSource sucursalBindingSource;
     }
 }
