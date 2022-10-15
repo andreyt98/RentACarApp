@@ -24,6 +24,9 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label11 = new System.Windows.Forms.Label();
             this.btnBorrarSeleccionS = new System.Windows.Forms.Button();
             this.sSeleccion = new System.Windows.Forms.Label();
@@ -35,6 +38,12 @@
             this.btnContinuarPaso1 = new System.Windows.Forms.Button();
             this.panelSucursal = new System.Windows.Forms.Panel();
             this.sucursalesDataGridCliente = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sucursalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnMostrarV = new System.Windows.Forms.Button();
             this.btnBorrarSeleccionV = new System.Windows.Forms.Button();
@@ -48,8 +57,21 @@
             this.panelVehiculo = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.vehiculosDataGrid = new System.Windows.Forms.DataGridView();
+            this.idPlacaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelCobertura = new System.Windows.Forms.Panel();
             this.CoberturaDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coberturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnBorrarSeleccionCoberturas = new System.Windows.Forms.Button();
             this.btnMostrarCoberturas = new System.Windows.Forms.Button();
@@ -63,35 +85,16 @@
             this.listReserva = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.sucursalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.telefonoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coberturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.montoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idPlacaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelSucursal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sucursalesDataGridCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sucursalBindingSource)).BeginInit();
             this.panelVehiculo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehiculosDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiculoBindingSource)).BeginInit();
             this.panelCobertura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CoberturaDataGridView)).BeginInit();
-            this.panelInfoReserva.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sucursalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coberturaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculoBindingSource)).BeginInit();
+            this.panelInfoReserva.SuspendLayout();
             this.SuspendLayout();
             // 
             // label11
@@ -107,6 +110,7 @@
             // 
             // btnBorrarSeleccionS
             // 
+            this.btnBorrarSeleccionS.ForeColor = System.Drawing.Color.Black;
             this.btnBorrarSeleccionS.Location = new System.Drawing.Point(725, 55);
             this.btnBorrarSeleccionS.Name = "btnBorrarSeleccionS";
             this.btnBorrarSeleccionS.Size = new System.Drawing.Size(99, 23);
@@ -129,6 +133,7 @@
             // 
             // btnMostrarS
             // 
+            this.btnMostrarS.ForeColor = System.Drawing.Color.Black;
             this.btnMostrarS.Location = new System.Drawing.Point(319, 55);
             this.btnMostrarS.Name = "btnMostrarS";
             this.btnMostrarS.Size = new System.Drawing.Size(153, 23);
@@ -163,6 +168,7 @@
             // 
             // btnContinuarPaso1
             // 
+            this.btnContinuarPaso1.ForeColor = System.Drawing.Color.Black;
             this.btnContinuarPaso1.Location = new System.Drawing.Point(469, 294);
             this.btnContinuarPaso1.Name = "btnContinuarPaso1";
             this.btnContinuarPaso1.Size = new System.Drawing.Size(200, 42);
@@ -173,34 +179,92 @@
             // 
             // panelSucursal
             // 
-            this.panelSucursal.BackColor = System.Drawing.Color.IndianRed;
+            this.panelSucursal.BackColor = System.Drawing.Color.Transparent;
             this.panelSucursal.Controls.Add(this.sucursalesDataGridCliente);
             this.panelSucursal.Controls.Add(this.label11);
             this.panelSucursal.Controls.Add(this.btnContinuarPaso1);
             this.panelSucursal.Controls.Add(this.btnMostrarS);
             this.panelSucursal.Controls.Add(this.sSeleccion);
             this.panelSucursal.Controls.Add(this.btnBorrarSeleccionS);
-            this.panelSucursal.Location = new System.Drawing.Point(0, 52);
+            this.panelSucursal.Location = new System.Drawing.Point(1, 51);
             this.panelSucursal.Name = "panelSucursal";
             this.panelSucursal.Size = new System.Drawing.Size(1066, 433);
             this.panelSucursal.TabIndex = 32;
             // 
             // sucursalesDataGridCliente
             // 
+            this.sucursalesDataGridCliente.AllowUserToAddRows = false;
+            this.sucursalesDataGridCliente.AllowUserToDeleteRows = false;
+            this.sucursalesDataGridCliente.AllowUserToResizeColumns = false;
+            this.sucursalesDataGridCliente.AllowUserToResizeRows = false;
             this.sucursalesDataGridCliente.AutoGenerateColumns = false;
+            this.sucursalesDataGridCliente.BackgroundColor = System.Drawing.Color.Gray;
             this.sucursalesDataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sucursalesDataGridCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn3,
             this.nombreDataGridViewTextBoxColumn1,
             this.direccionDataGridViewTextBoxColumn1,
-            this.estadoDataGridViewCheckBoxColumn,
+            this.Estado,
             this.telefonoDataGridViewTextBoxColumn1});
             this.sucursalesDataGridCliente.DataSource = this.sucursalBindingSource;
-            this.sucursalesDataGridCliente.Location = new System.Drawing.Point(294, 89);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.sucursalesDataGridCliente.DefaultCellStyle = dataGridViewCellStyle1;
+            this.sucursalesDataGridCliente.GridColor = System.Drawing.Color.Gray;
+            this.sucursalesDataGridCliente.Location = new System.Drawing.Point(320, 90);
+            this.sucursalesDataGridCliente.MultiSelect = false;
             this.sucursalesDataGridCliente.Name = "sucursalesDataGridCliente";
+            this.sucursalesDataGridCliente.ReadOnly = true;
+            this.sucursalesDataGridCliente.RowHeadersVisible = false;
             this.sucursalesDataGridCliente.RowTemplate.Height = 25;
-            this.sucursalesDataGridCliente.Size = new System.Drawing.Size(545, 150);
+            this.sucursalesDataGridCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.sucursalesDataGridCliente.Size = new System.Drawing.Size(504, 150);
             this.sucursalesDataGridCliente.TabIndex = 32;
+            this.sucursalesDataGridCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sucursalesDataGridCliente_CellClick);
+            // 
+            // idDataGridViewTextBoxColumn3
+            // 
+            this.idDataGridViewTextBoxColumn3.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn3.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn3.Name = "idDataGridViewTextBoxColumn3";
+            this.idDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn1
+            // 
+            this.nombreDataGridViewTextBoxColumn1.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn1.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn1.Name = "nombreDataGridViewTextBoxColumn1";
+            this.nombreDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // direccionDataGridViewTextBoxColumn1
+            // 
+            this.direccionDataGridViewTextBoxColumn1.DataPropertyName = "Direccion";
+            this.direccionDataGridViewTextBoxColumn1.HeaderText = "Direccion";
+            this.direccionDataGridViewTextBoxColumn1.Name = "direccionDataGridViewTextBoxColumn1";
+            this.direccionDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
+            // telefonoDataGridViewTextBoxColumn1
+            // 
+            this.telefonoDataGridViewTextBoxColumn1.DataPropertyName = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn1.HeaderText = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn1.Name = "telefonoDataGridViewTextBoxColumn1";
+            this.telefonoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sucursalBindingSource
+            // 
+            this.sucursalBindingSource.DataSource = typeof(CapaEntidades.Sucursal);
             // 
             // label1
             // 
@@ -215,6 +279,7 @@
             // 
             // btnMostrarV
             // 
+            this.btnMostrarV.ForeColor = System.Drawing.Color.Black;
             this.btnMostrarV.Location = new System.Drawing.Point(258, 49);
             this.btnMostrarV.Name = "btnMostrarV";
             this.btnMostrarV.Size = new System.Drawing.Size(118, 23);
@@ -225,6 +290,7 @@
             // 
             // btnBorrarSeleccionV
             // 
+            this.btnBorrarSeleccionV.ForeColor = System.Drawing.Color.Black;
             this.btnBorrarSeleccionV.Location = new System.Drawing.Point(742, 49);
             this.btnBorrarSeleccionV.Name = "btnBorrarSeleccionV";
             this.btnBorrarSeleccionV.Size = new System.Drawing.Size(118, 23);
@@ -258,6 +324,7 @@
             // 
             // btnContinuarPaso2
             // 
+            this.btnContinuarPaso2.ForeColor = System.Drawing.Color.Black;
             this.btnContinuarPaso2.Location = new System.Drawing.Point(460, 382);
             this.btnContinuarPaso2.Name = "btnContinuarPaso2";
             this.btnContinuarPaso2.Size = new System.Drawing.Size(194, 39);
@@ -306,7 +373,7 @@
             // 
             // panelVehiculo
             // 
-            this.panelVehiculo.BackColor = System.Drawing.Color.Firebrick;
+            this.panelVehiculo.BackColor = System.Drawing.Color.Transparent;
             this.panelVehiculo.Controls.Add(this.label7);
             this.panelVehiculo.Controls.Add(this.vehiculosDataGrid);
             this.panelVehiculo.Controls.Add(this.label3);
@@ -342,6 +409,7 @@
             this.vehiculosDataGrid.AllowUserToResizeColumns = false;
             this.vehiculosDataGrid.AllowUserToResizeRows = false;
             this.vehiculosDataGrid.AutoGenerateColumns = false;
+            this.vehiculosDataGrid.BackgroundColor = System.Drawing.Color.Gray;
             this.vehiculosDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vehiculosDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idPlacaDataGridViewTextBoxColumn,
@@ -351,7 +419,17 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.vehiculosDataGrid.DataSource = this.vehiculoBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.vehiculosDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.vehiculosDataGrid.GridColor = System.Drawing.Color.Gray;
             this.vehiculosDataGrid.Location = new System.Drawing.Point(258, 84);
+            this.vehiculosDataGrid.MultiSelect = false;
             this.vehiculosDataGrid.Name = "vehiculosDataGrid";
             this.vehiculosDataGrid.ReadOnly = true;
             this.vehiculosDataGrid.RowHeadersVisible = false;
@@ -361,9 +439,55 @@
             this.vehiculosDataGrid.TabIndex = 40;
             this.vehiculosDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehiculosDataGrid_CellClick);
             // 
+            // idPlacaDataGridViewTextBoxColumn
+            // 
+            this.idPlacaDataGridViewTextBoxColumn.DataPropertyName = "IdPlaca";
+            this.idPlacaDataGridViewTextBoxColumn.HeaderText = "IdPlaca";
+            this.idPlacaDataGridViewTextBoxColumn.Name = "idPlacaDataGridViewTextBoxColumn";
+            this.idPlacaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Marca";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Marca";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Modelo";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Modelo";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "IdTipoVehiculo";
+            this.dataGridViewTextBoxColumn4.HeaderText = "IdTipoVehiculo";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "CostoAlquilerDia";
+            this.dataGridViewTextBoxColumn5.HeaderText = "CostoAlquilerDia";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Kilometraje";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Kilometraje";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // vehiculoBindingSource
+            // 
+            this.vehiculoBindingSource.DataSource = typeof(CapaEntidades.Vehiculo);
+            // 
             // panelCobertura
             // 
-            this.panelCobertura.BackColor = System.Drawing.Color.DarkOrange;
+            this.panelCobertura.BackColor = System.Drawing.Color.Transparent;
             this.panelCobertura.Controls.Add(this.CoberturaDataGridView);
             this.panelCobertura.Controls.Add(this.btnGuardar);
             this.panelCobertura.Controls.Add(this.btnBorrarSeleccionCoberturas);
@@ -378,23 +502,82 @@
             // 
             // CoberturaDataGridView
             // 
+            this.CoberturaDataGridView.AllowUserToAddRows = false;
+            this.CoberturaDataGridView.AllowUserToDeleteRows = false;
+            this.CoberturaDataGridView.AllowUserToResizeColumns = false;
+            this.CoberturaDataGridView.AllowUserToResizeRows = false;
             this.CoberturaDataGridView.AutoGenerateColumns = false;
+            this.CoberturaDataGridView.BackgroundColor = System.Drawing.Color.Gray;
             this.CoberturaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CoberturaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn4,
             this.descripcionDataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn1,
-            this.estadoDataGridViewCheckBoxColumn1,
+            this.dataGridViewTextBoxColumn7,
             this.montoDataGridViewTextBoxColumn1});
             this.CoberturaDataGridView.DataSource = this.coberturaBindingSource;
-            this.CoberturaDataGridView.Location = new System.Drawing.Point(312, 89);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CoberturaDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CoberturaDataGridView.GridColor = System.Drawing.Color.Gray;
+            this.CoberturaDataGridView.Location = new System.Drawing.Point(317, 93);
+            this.CoberturaDataGridView.MultiSelect = false;
             this.CoberturaDataGridView.Name = "CoberturaDataGridView";
+            this.CoberturaDataGridView.ReadOnly = true;
+            this.CoberturaDataGridView.RowHeadersVisible = false;
             this.CoberturaDataGridView.RowTemplate.Height = 25;
-            this.CoberturaDataGridView.Size = new System.Drawing.Size(512, 150);
+            this.CoberturaDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.CoberturaDataGridView.Size = new System.Drawing.Size(505, 150);
             this.CoberturaDataGridView.TabIndex = 40;
+            this.CoberturaDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CoberturaDataGridView_CellClick);
+            // 
+            // idDataGridViewTextBoxColumn4
+            // 
+            this.idDataGridViewTextBoxColumn4.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn4.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn4.Name = "idDataGridViewTextBoxColumn4";
+            this.idDataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // descripcionDataGridViewTextBoxColumn1
+            // 
+            this.descripcionDataGridViewTextBoxColumn1.DataPropertyName = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn1.HeaderText = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn1.Name = "descripcionDataGridViewTextBoxColumn1";
+            this.descripcionDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "IdTipoVehiculo";
+            this.dataGridViewTextBoxColumn1.HeaderText = "IdTipoVehiculo";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Estado";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // montoDataGridViewTextBoxColumn1
+            // 
+            this.montoDataGridViewTextBoxColumn1.DataPropertyName = "Monto";
+            this.montoDataGridViewTextBoxColumn1.HeaderText = "Monto";
+            this.montoDataGridViewTextBoxColumn1.Name = "montoDataGridViewTextBoxColumn1";
+            this.montoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // coberturaBindingSource
+            // 
+            this.coberturaBindingSource.DataSource = typeof(CapaEntidades.Cobertura);
             // 
             // btnGuardar
             // 
+            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
             this.btnGuardar.Location = new System.Drawing.Point(449, 342);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(200, 42);
@@ -405,6 +588,7 @@
             // 
             // btnBorrarSeleccionCoberturas
             // 
+            this.btnBorrarSeleccionCoberturas.ForeColor = System.Drawing.Color.Black;
             this.btnBorrarSeleccionCoberturas.Location = new System.Drawing.Point(701, 55);
             this.btnBorrarSeleccionCoberturas.Name = "btnBorrarSeleccionCoberturas";
             this.btnBorrarSeleccionCoberturas.Size = new System.Drawing.Size(118, 23);
@@ -416,6 +600,7 @@
             // 
             // btnMostrarCoberturas
             // 
+            this.btnMostrarCoberturas.ForeColor = System.Drawing.Color.Black;
             this.btnMostrarCoberturas.Location = new System.Drawing.Point(312, 55);
             this.btnMostrarCoberturas.Name = "btnMostrarCoberturas";
             this.btnMostrarCoberturas.Size = new System.Drawing.Size(118, 23);
@@ -472,7 +657,7 @@
             // 
             // panelInfoReserva
             // 
-            this.panelInfoReserva.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panelInfoReserva.BackColor = System.Drawing.Color.Transparent;
             this.panelInfoReserva.Controls.Add(this.listReserva);
             this.panelInfoReserva.Controls.Add(this.label6);
             this.panelInfoReserva.Location = new System.Drawing.Point(1, 48);
@@ -503,6 +688,7 @@
             // 
             // button3
             // 
+            this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(17, 21);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
@@ -510,147 +696,33 @@
             this.button3.Text = "Atrás";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // sucursalBindingSource
-            // 
-            this.sucursalBindingSource.DataSource = typeof(CapaEntidades.Sucursal);
-            // 
-            // idDataGridViewTextBoxColumn3
-            // 
-            this.idDataGridViewTextBoxColumn3.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn3.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn3.Name = "idDataGridViewTextBoxColumn3";
-            // 
-            // nombreDataGridViewTextBoxColumn1
-            // 
-            this.nombreDataGridViewTextBoxColumn1.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn1.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn1.Name = "nombreDataGridViewTextBoxColumn1";
-            // 
-            // direccionDataGridViewTextBoxColumn1
-            // 
-            this.direccionDataGridViewTextBoxColumn1.DataPropertyName = "Direccion";
-            this.direccionDataGridViewTextBoxColumn1.HeaderText = "Direccion";
-            this.direccionDataGridViewTextBoxColumn1.Name = "direccionDataGridViewTextBoxColumn1";
-            // 
-            // estadoDataGridViewCheckBoxColumn
-            // 
-            this.estadoDataGridViewCheckBoxColumn.DataPropertyName = "Estado";
-            this.estadoDataGridViewCheckBoxColumn.HeaderText = "Estado";
-            this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
-            // 
-            // telefonoDataGridViewTextBoxColumn1
-            // 
-            this.telefonoDataGridViewTextBoxColumn1.DataPropertyName = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn1.HeaderText = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn1.Name = "telefonoDataGridViewTextBoxColumn1";
-            // 
-            // coberturaBindingSource
-            // 
-            this.coberturaBindingSource.DataSource = typeof(CapaEntidades.Cobertura);
-            // 
-            // idDataGridViewTextBoxColumn4
-            // 
-            this.idDataGridViewTextBoxColumn4.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn4.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn4.Name = "idDataGridViewTextBoxColumn4";
-            // 
-            // descripcionDataGridViewTextBoxColumn1
-            // 
-            this.descripcionDataGridViewTextBoxColumn1.DataPropertyName = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn1.HeaderText = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn1.Name = "descripcionDataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "IdTipoVehiculo";
-            this.dataGridViewTextBoxColumn1.HeaderText = "IdTipoVehiculo";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // estadoDataGridViewCheckBoxColumn1
-            // 
-            this.estadoDataGridViewCheckBoxColumn1.DataPropertyName = "Estado";
-            this.estadoDataGridViewCheckBoxColumn1.HeaderText = "Estado";
-            this.estadoDataGridViewCheckBoxColumn1.Name = "estadoDataGridViewCheckBoxColumn1";
-            // 
-            // montoDataGridViewTextBoxColumn1
-            // 
-            this.montoDataGridViewTextBoxColumn1.DataPropertyName = "Monto";
-            this.montoDataGridViewTextBoxColumn1.HeaderText = "Monto";
-            this.montoDataGridViewTextBoxColumn1.Name = "montoDataGridViewTextBoxColumn1";
-            // 
-            // vehiculoBindingSource
-            // 
-            this.vehiculoBindingSource.DataSource = typeof(CapaEntidades.Vehiculo);
-            // 
-            // idPlacaDataGridViewTextBoxColumn
-            // 
-            this.idPlacaDataGridViewTextBoxColumn.DataPropertyName = "IdPlaca";
-            this.idPlacaDataGridViewTextBoxColumn.HeaderText = "IdPlaca";
-            this.idPlacaDataGridViewTextBoxColumn.Name = "idPlacaDataGridViewTextBoxColumn";
-            this.idPlacaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Marca";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Marca";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Modelo";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Modelo";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "IdTipoVehiculo";
-            this.dataGridViewTextBoxColumn4.HeaderText = "IdTipoVehiculo";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "CostoAlquilerDia";
-            this.dataGridViewTextBoxColumn5.HeaderText = "CostoAlquilerDia";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Kilometraje";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Kilometraje";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
             // RealizarReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.panelCobertura);
             this.Controls.Add(this.panelVehiculo);
             this.Controls.Add(this.panelSucursal);
             this.Controls.Add(this.panelInfoReserva);
-            this.Controls.Add(this.panelCobertura);
             this.Name = "RealizarReserva";
             this.Size = new System.Drawing.Size(1067, 485);
             this.panelSucursal.ResumeLayout(false);
             this.panelSucursal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sucursalesDataGridCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sucursalBindingSource)).EndInit();
             this.panelVehiculo.ResumeLayout(false);
             this.panelVehiculo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehiculosDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiculoBindingSource)).EndInit();
             this.panelCobertura.ResumeLayout(false);
             this.panelCobertura.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CoberturaDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coberturaBindingSource)).EndInit();
             this.panelInfoReserva.ResumeLayout(false);
             this.panelInfoReserva.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sucursalBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coberturaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -703,11 +775,6 @@
         private Label label7;
         private DataGridView sucursalesDataGridCliente;
         private DataGridView CoberturaDataGridView;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn1;
-        private DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
-        private DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn1;
         private BindingSource sucursalBindingSource;
         private DataGridViewTextBoxColumn idPlacaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -716,11 +783,16 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private BindingSource vehiculoBindingSource;
+        private BindingSource coberturaBindingSource;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn Estado;
+        private DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn1;
-        private BindingSource coberturaBindingSource;
     }
 }

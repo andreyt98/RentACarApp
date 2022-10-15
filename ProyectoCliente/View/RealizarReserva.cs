@@ -66,13 +66,6 @@
             vehiculosDataGrid.ClearSelection();
         }
 
-        private void sucursalesDataGridCliente_CellClick(object sender, DataGridViewCellEventArgs e) {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) {
-                btnBorrarSeleccionS.Visible = true;
-                seleccionIdSucursal = int.Parse(sucursalesDataGridCliente.Rows[e.RowIndex].Cells[0].Value.ToString());
-                sSeleccion.Text = seleccionIdSucursal.ToString();
-            }
-        }
         private void btnBorrarSeleccionS_Click(object sender, EventArgs e) {
             if (sucursalesDataGridCliente.SelectedRows.Count > 0) {
                 btnBorrarSeleccionS.Visible = false;
@@ -104,21 +97,30 @@
             CoberturaDataGridView.DataSource = ConexionTCP.solicitarCoberturas(seleccionIdTipoV);
             CoberturaDataGridView.ClearSelection();
         }
-        private void CoberturaDataGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
 
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) {
-                btnBorrarSeleccionCoberturas.Visible = true;
-                seleccionIdCobertura = int.Parse(CoberturaDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
-                seleccionMontoCobertura = int.Parse(CoberturaDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString());
-                labelCoberturaSeleccionada.Text = seleccionIdCobertura.ToString();
-            }
-        }
         private void btnBorrarSeleccionCoberturas_Click(object sender, EventArgs e) {
             if (CoberturaDataGridView.SelectedRows.Count > 0) {
                 btnBorrarSeleccionCoberturas.Visible = false;
                 CoberturaDataGridView.ClearSelection();
                 seleccionIdCobertura = null;
                 labelCoberturaSeleccionada.Text = "--";
+            }
+        }
+
+        private void sucursalesDataGridCliente_CellClick(object sender, DataGridViewCellEventArgs e) {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) {
+                btnBorrarSeleccionS.Visible = true;
+                seleccionIdSucursal = int.Parse(sucursalesDataGridCliente.Rows[e.RowIndex].Cells[0].Value.ToString());
+                sSeleccion.Text = seleccionIdSucursal.ToString();
+            }
+        }
+
+        private void CoberturaDataGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) {
+                btnBorrarSeleccionCoberturas.Visible = true;
+                seleccionIdCobertura = int.Parse(CoberturaDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+                seleccionMontoCobertura = int.Parse(CoberturaDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString());
+                labelCoberturaSeleccionada.Text = seleccionIdCobertura.ToString();
             }
         }
     }

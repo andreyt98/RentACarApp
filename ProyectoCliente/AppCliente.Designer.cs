@@ -36,6 +36,7 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.btnRealizarReserva = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.realizarReserva1 = new ProyectoCliente.View.RealizarReserva();
             this.panelContenedor.SuspendLayout();
             this.panelInicioSesion.SuspendLayout();
@@ -44,15 +45,16 @@
             // 
             // panelContenedor
             // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.panelContenedor.Controls.Add(this.idCliente);
             this.panelContenedor.Controls.Add(this.btnDesconectar);
             this.panelContenedor.Controls.Add(this.panelInicioSesion);
             this.panelContenedor.Controls.Add(this.nombreCliente);
             this.panelContenedor.Controls.Add(this.panelMenu);
+            this.panelContenedor.Controls.Add(this.label4);
             this.panelContenedor.Controls.Add(this.realizarReserva1);
             this.panelContenedor.ForeColor = System.Drawing.Color.White;
-            this.panelContenedor.Location = new System.Drawing.Point(-3, -2);
+            this.panelContenedor.Location = new System.Drawing.Point(-2, -2);
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1070, 663);
             this.panelContenedor.TabIndex = 3;
@@ -80,7 +82,7 @@
             // 
             // panelInicioSesion
             // 
-            this.panelInicioSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
+            this.panelInicioSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.panelInicioSesion.Controls.Add(this.mensaje);
             this.panelInicioSesion.Controls.Add(this.label1);
             this.panelInicioSesion.Controls.Add(this.btnIniciarConexion);
@@ -182,9 +184,20 @@
             this.btnRealizarReserva.UseVisualStyleBackColor = true;
             this.btnRealizarReserva.Click += new System.EventHandler(this.btnRealizarReserva_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(70)))));
+            this.label4.Location = new System.Drawing.Point(15, 619);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(124, 21);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Rent A Car App";
+            // 
             // realizarReserva1
             // 
-            this.realizarReserva1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.realizarReserva1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
             this.realizarReserva1.fechaFin = null;
             this.realizarReserva1.fechaInicio = null;
             this.realizarReserva1.Location = new System.Drawing.Point(3, 173);
@@ -234,5 +247,6 @@
         private View.RealizarReserva realizarReserva1;
         private Button btnDesconectar;
         public Label idCliente;
+        private Label label4;
     }
 }
