@@ -51,6 +51,7 @@
             this.panelContenedor.Controls.Add(this.nombreCliente);
             this.panelContenedor.Controls.Add(this.panelMenu);
             this.panelContenedor.Controls.Add(this.realizarReserva1);
+            this.panelContenedor.ForeColor = System.Drawing.Color.White;
             this.panelContenedor.Location = new System.Drawing.Point(-3, -2);
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1070, 663);
@@ -67,6 +68,7 @@
             // 
             // btnDesconectar
             // 
+            this.btnDesconectar.ForeColor = System.Drawing.Color.Black;
             this.btnDesconectar.Location = new System.Drawing.Point(972, 14);
             this.btnDesconectar.Name = "btnDesconectar";
             this.btnDesconectar.Size = new System.Drawing.Size(88, 32);
@@ -111,6 +113,7 @@
             // 
             // btnIniciarConexion
             // 
+            this.btnIniciarConexion.ForeColor = System.Drawing.Color.Black;
             this.btnIniciarConexion.Location = new System.Drawing.Point(85, 172);
             this.btnIniciarConexion.Name = "btnIniciarConexion";
             this.btnIniciarConexion.Size = new System.Drawing.Size(174, 45);
@@ -159,6 +162,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(371, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(256, 38);
@@ -169,6 +173,7 @@
             // btnRealizarReserva
             // 
             this.btnRealizarReserva.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRealizarReserva.ForeColor = System.Drawing.Color.Black;
             this.btnRealizarReserva.Location = new System.Drawing.Point(27, 4);
             this.btnRealizarReserva.Name = "btnRealizarReserva";
             this.btnRealizarReserva.Size = new System.Drawing.Size(256, 38);
