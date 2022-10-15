@@ -6,12 +6,12 @@ namespace ProyectoServidor.view {
         }
 
         private void btnVerDatos_Click(object sender, EventArgs e) {
-        Controllers.ConsultaCliente cc = new(this);
-            /* BaseDatos baseDatos = new BaseDatos();
+       // Controllers.ConsultaCliente cc = new(this);
+            BaseDatos baseDatos = new BaseDatos();
 
-             clienteDataGrid.Enabled = true;
-             clienteDataGrid.DataSource = baseDatos.obtenerClientes();*/
-            cc.verDatos(sender, e, clienteDataGrid);
+            clienteDataGrid.Enabled = true;
+            clienteDataGrid.DataSource = baseDatos.obtenerClientes();
+          //  cc.verDatos(sender, e, clienteDataGrid);
         }
     }
 }
