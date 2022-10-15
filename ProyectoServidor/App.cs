@@ -44,14 +44,7 @@ namespace ProyectoServidor {
             }
         }
         public void changeClientStatus(string txt) {//EscribirEntxtBox
-                                                    // App app = new();
-
-            try {
                 listRegistroConexiones.Items.Add(txt);
-
-            } catch (Exception a) {
-                MessageBox.Show("no actualiza los clientes");
-            }
         }
         public void changeClientsCount(string txt, bool added) { //modificarListbox
 
@@ -191,7 +184,7 @@ namespace ProyectoServidor {
 
             if (cliente != null && !listConnectedUsers.Items.Contains(cliente.Id) && !listRegistroConexiones.Items.Contains(cliente.Id)) {
 
-                listConnectedUsers.Invoke(clientStatus, new object[] { $"{cliente.Id} se ha conectado!" });
+                listConnectedUsers.Invoke(clientStatus, new object[] { $"Usuario #({cliente.Id}) se ha conectado!" });
                 listRegistroConexiones.Invoke(modifyStatus, new object[] { id, true });
                 cantUsuarios.Invoke(modifyCount, new object[] { id, true });
                 return true;
@@ -228,7 +221,7 @@ namespace ProyectoServidor {
                     listaVehiculos = baseDatos.obtenerVehiculo(false, baseDatos.vehiculosAsociados((int)seleccionIdSucursal));
 
                     if (baseDatos.obtenerVehiculo(false, baseDatos.vehiculosAsociados((int)seleccionIdSucursal)).Count <= 0) {
-                        MessageBox.Show("ya vinculo con esta sucursal todos los vehiculos disponibles", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("ya vinculó con esta sucursal todos los vehiculos disponibles", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 } else {
                     //si no se ha hecho ninguna vinculacion, se muestran todos los vehiculos existentes
@@ -253,7 +246,7 @@ namespace ProyectoServidor {
         }  
         
         public void disconnect(string id) {
-            listConnectedUsers.Invoke(clientStatus, new object[] { $"{id} se ha desconectado!" });
+            listConnectedUsers.Invoke(clientStatus, new object[] { $"Usuario #({id}) se ha desconectado!" });
             listRegistroConexiones.Invoke(modifyStatus, new object[] { id, false });
             cantUsuarios.Invoke(modifyCount, new object[] { id, false });
         }
